@@ -1,98 +1,81 @@
 package testscript;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+import java.io.IOException;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import automationcore.Base;
+import constants.Messages;
+import pages.LoginPage;
+import pages.SubCategoryPage;
+import utilities.ExcelUtility;
 
-public class SubCategoryTest  extends Base{
-	@Test(priority=1,description="Verification of adding  new items into the subcategory module")
-	public void verifyAddNewItemToSubCategory()
-	{	
-	WebElement userName = driver.findElement(By.xpath("//input[@name='username']"));
-	userName.sendKeys("admin");
-	
-	WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-	password.sendKeys("admin");
-	
-	WebElement rememberMe = driver.findElement(By.xpath("//label[@for='remember']"));
-	rememberMe.click();
-	
-	WebElement signIn = driver.findElement(By.xpath("//button[@type='submit']"));
-	signIn.click();
-	WebElement subCategory = driver.findElement(By.xpath("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']"));
-	subCategory.click();
+public class SubCategoryTest extends Base {
+	@Test(priority = 1, description = "Verification of adding  new items into the subcategory module")
+	public void verifywhetherUserIsAbleToAddNewItemToTheSubCategoryList() throws IOException {
 
-	WebElement addNewItem=driver.findElement(By.xpath("//a[@class='btn btn-rounded btn-danger']"));
-	addNewItem.click();
-	
-	WebElement categorySelect=driver.findElement(By.xpath("//select[@id='cat_id']"));
-	Select select=new Select(categorySelect);
-	select.selectByIndex(7);
-	
-	WebElement subCategorySelect=driver.findElement(By.xpath("//input[@id='subcategory']"));
-	subCategorySelect.sendKeys("tomatto");
-	
-//	WebElement chooseFile=driver.findElement(By.xpath("//input[@id='main_img']"));
-//	chooseFile.sendKeys("C:\\Users\\PC\\eclipse-workspace\\7rMartProject\\src\\test\\resources\\beet.jpg");
+		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username);
+		login.enterPasswordOnPasswordField(password);
+		login.clickOnCheckBox();
+		login.clickOnSignInButton();
 
-	WebElement save=driver.findElement(By.xpath("//button[@class='btn btn-danger']"));
-	save.click();
+		SubCategoryPage subCategory = new SubCategoryPage(driver);
+		subCategory.clickOnSubCategory();
+		subCategory.clickOnAddNewButton();
+		subCategory.clickOnCategoryFromDropDownMenu();
+		String subCategoryselect = ExcelUtility.readStringData(3, 0, "SubCategoryPage");
+		subCategory.enterSubCategoryOnSubCategoryField(subCategoryselect);
+		subCategory.clickOnChooseFile();
+		subCategory.clickOnSaveButton();
+
+		String expectedResult = "Alert!";
+		String actualResult = subCategory.getTextFromSubCategoryAlert();
+		Assert.assertEquals(expectedResult, actualResult, Messages.ADDNEWITEMTOTHESUBCATEGORYLISTCREDENTIALERROR);
+
 	}
 
-	@Test(priority=2,description="Verification of search an item in the subcategory list")
-	public void verifySearchItemsFromSubCategory()
-	{	
-	WebElement userName = driver.findElement(By.xpath("//input[@name='username']"));
-	userName.sendKeys("admin");
-	
-	WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-	password.sendKeys("admin");
-	
-	WebElement rememberMe = driver.findElement(By.xpath("//label[@for='remember']"));
-	rememberMe.click();
-	
-	WebElement signIn = driver.findElement(By.xpath("//button[@type='submit']"));
-	signIn.click();
-	WebElement subCategory = driver.findElement(By.xpath("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']"));
-	subCategory.click();
-	
-	WebElement search=driver.findElement(By.xpath("//a[@href='javascript:void(0)']"));
-	search.click();
-	
-	WebElement category=driver.findElement(By.xpath("//select[@id='un']"));
-	category.click();
-	Select select=new Select(category);
-	select.selectByIndex(10);
-	
-	WebElement subCategory1=driver.findElement(By.xpath("//input[@placeholder='Sub Category']"));
-	subCategory1.sendKeys("chicken");
-	
-	WebElement search1=driver.findElement(By.xpath("//button[@name='Search']"));
-	search1.click();
-	
+	@Test(priority = 2, description = "Verification of search an item in the subcategory list")
+	public void verifyWhetherUserIsAbleToSearchItemsFromSubCategoryList() throws IOException {
+		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username);
+		login.enterPasswordOnPasswordField(password);
+		login.clickOnCheckBox();
+		login.clickOnSignInButton();
 
-}
-	@Test(priority=3,description="Verification of refresh functionality for the subcategory module")
-	public void verifyResetSubCategoryPage()
-	{
-		WebElement userName = driver.findElement(By.xpath("//input[@name='username']"));
-		userName.sendKeys("admin");
-		
-		WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-		password.sendKeys("admin");
-		
-		WebElement rememberMe = driver.findElement(By.xpath("//label[@for='remember']"));
-		rememberMe.click();
-		
-		WebElement signIn = driver.findElement(By.xpath("//button[@type='submit']"));
-		signIn.click();
-		WebElement subCategory = driver.findElement(By.xpath("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']"));
-		subCategory.click();
-		
-		WebElement reset=driver.findElement(By.xpath("//i[@class='ace-icon fa fa-sync-alt']"));
-		reset.click();
+		SubCategoryPage subCategory = new SubCategoryPage(driver);
+		subCategory.clickOnSubCategory();
+		subCategory.clickOnSearchButtonOnTheSubCategoru();
+		subCategory.clickOnCategoryDropDownMenuForCategorysearch();
+		String subCategorysearch = ExcelUtility.readStringData(4, 0, "SubCategoryPage");
+		subCategory.enterSubcategoryForSearchSubCategory(subCategorysearch);
+		subCategory.clickOnSearchButton();
+
+		boolean isDisplayedSearchSubCategoryPage = subCategory.isDisplayedSearchSubCategoryPage();
+		Assert.assertTrue(isDisplayedSearchSubCategoryPage, Messages.SEARCHITEMFROMSUBCATEGORYLISTCREDENTIALERROR);
+
+	}
+
+	@Test(priority = 3, description = "Verification of refresh functionality for the subcategory module")
+	public void verifyWhtherUserIsAbleToRefreshPageUsingResetButton() throws IOException {
+		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username);
+		login.enterPasswordOnPasswordField(password);
+		login.clickOnCheckBox();
+		login.clickOnSignInButton();
+
+		SubCategoryPage subCategory = new SubCategoryPage(driver);
+		subCategory.clickOnSubCategory();
+		subCategory.clickOnResetButton();
+
+		boolean isDisplayedRefreshSubCategoryPage = subCategory.isDisplayedRefreshSubCategoryPage();
+		Assert.assertTrue(isDisplayedRefreshSubCategoryPage, Messages.REFRESHSUBCATEGORYPAGECREDENTIALERROR);
+
 	}
 }

@@ -1,89 +1,82 @@
 package testscript;
+
+import static org.testng.Assert.assertTrue;
+import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constants.Messages;
+import pages.LoginPage;
+import pages.ManageNewsPage;
+import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base {
 
-	@Test(priority = 1,description="Verification of creating a new news into the Manage News module")
-	public void verifyAddNewNewsToManageNews() {
+	@Test(priority = 1, description = "Verification of creating a new news by the user into the Manage News list")
+	public void verifyWhetherUserIsAbleToCreateNewNewsToTheManageNewsList() throws IOException {
 
-		WebElement userName = driver.findElement(By.xpath("//input[@name='username']"));
-		userName.sendKeys("admin");
+		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username);
+		login.enterPasswordOnPasswordField(password);
+		login.clickOnCheckBox();
+		login.clickOnSignInButton();
 
-		WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-		password.sendKeys("admin");
+		ManageNewsPage manageNews = new ManageNewsPage(driver);
+		manageNews.clickOnManageNewsButton();
+		manageNews.clickOnNewButtonForCreateNews();
+		String createNews = ExcelUtility.readStringData(3, 0, "ManageNewsPage");
+		manageNews.createNewsOnTheCreateNewsFiels(createNews);
+		manageNews.clickOnSaveButton();
 
-		WebElement rememberMe = driver.findElement(By.xpath("//label[@for='remember']"));
-		rememberMe.click();
-
-		WebElement signIn = driver.findElement(By.xpath("//button[@type='submit']"));
-		signIn.click();
-
-		WebElement manageNews = driver.findElement(By.xpath(
-				"//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news'  or @href='https://groceryapp.uniqassosiates.com/admin/list-news']"));
-		manageNews.click();
-
-		WebElement addNews = driver.findElement(By.xpath("//a[@onclick='click_button(1)']"));
-		addNews.click();
-
-		WebElement news = driver.findElement(By.xpath("//textarea[@id='news']"));
-		news.sendKeys("News about fire");
-
-		WebElement save = driver.findElement(By.xpath("//button[@name='create']"));
-		save.click();
-	}
-
-	@Test(priority = 2,description="Verification of searching a news from the Manage News Module")
-	public void verifySearchNewsFromManageNews() {
-
-		WebElement userName = driver.findElement(By.xpath("//input[@name='username']"));
-		userName.sendKeys("admin");
-
-		WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-		password.sendKeys("admin");
-
-		WebElement rememberMe = driver.findElement(By.xpath("//label[@for='remember']"));
-		rememberMe.click();
-
-		WebElement signIn = driver.findElement(By.xpath("//button[@type='submit']"));
-		signIn.click();
-
-		WebElement manageNews = driver.findElement(By.xpath("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news'  or @href='https://groceryapp.uniqassosiates.com/admin/list-news']"));
-		manageNews.click();
-
-		WebElement search = driver.findElement(By.xpath("//a[@onclick='click_button(2)']"));
-		search.click();
-
-		WebElement title = driver.findElement(By.xpath("//input[@name='un']"));
-		title.sendKeys("News about fire");
-
-		WebElement search1 = driver.findElement(By.xpath("//button[@type='submit']"));
-		search1.click();
+		String expectedResult = "Alert!";
+		String actualResult = manageNews.gettextFromAlert();
+		Assert.assertEquals(actualResult, expectedResult, Messages.CREATENEWSTOMANAGENEWSLISTCREDENTIALERROR);
 
 	}
 
-	@Test(priority = 3,description="Verification of refreshing functionality for Manage News page")
-	public void verifyResetButtonForManageNews() 
-	{
-		WebElement userName = driver.findElement(By.xpath("//input[@name='username']"));
-		userName.sendKeys("admin");
+	@Test(priority = 2, description = "Verification of searching a news by the user from the list of created news list")
+	public void verifyWhetherUserIsAbleToSearchNewsFromManageNewsList() throws IOException {
 
-		WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-		password.sendKeys("admin");
+		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username);
+		login.enterPasswordOnPasswordField(password);
+		login.clickOnCheckBox();
+		login.clickOnSignInButton();
 
-		WebElement rememberMe = driver.findElement(By.xpath("//label[@for='remember']"));
-		rememberMe.click();
+		ManageNewsPage manageNews = new ManageNewsPage(driver);
+		manageNews.clickOnManageNewsButton();
+		manageNews.clickOnSearchButtonOnManageNews();
+		String titleNews = ExcelUtility.readStringData(3, 0, "ManageNewspage");
+		manageNews.entertitleOnTheTitleField(titleNews);
+		manageNews.clickOnSearchButton();
 
-		WebElement signIn = driver.findElement(By.xpath("//button[@type='submit']"));
-		signIn.click();
+		boolean isDisplayedSearchPage = manageNews.isDisplayedSearchPage();
+		Assert.assertTrue(isDisplayedSearchPage, Messages.SEARCHNEWSFROMMANAGENEWSLISTCREDENTIALERROR);
 
-		WebElement manageNews = driver.findElement(By.xpath("//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news'  or @href='https://groceryapp.uniqassosiates.com/admin/list-news']"));
-		manageNews.click();
+	}
 
-		WebElement reset = driver.findElement(By.xpath("//i[@class='ace-icon fa fa-sync-alt']"));
-		reset.click();
+	@Test(priority = 3, description = "Verification of refreshing functionality for Manage News page")
+	public void verifyWhetherUserIsAbleToRefreshManageNewsPageUsingResetButton() throws IOException {
+		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username);
+		login.enterPasswordOnPasswordField(password);
+		login.clickOnCheckBox();
+		login.clickOnSignInButton();
+
+		ManageNewsPage manageNews = new ManageNewsPage(driver);
+		manageNews.clickOnManageNewsButton();
+		manageNews.clickOnResetButton();
+
+		boolean isDisplayedManageNewsPage = manageNews.isDisplayedManagenewsPage();
+		Assert.assertTrue(isDisplayedManageNewsPage, Messages.REFRESHMANAGENEWSPAGECREDENTIALERROR);
 	}
 }

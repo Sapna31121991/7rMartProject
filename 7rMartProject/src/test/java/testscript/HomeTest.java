@@ -1,36 +1,33 @@
 package testscript;
+import java.io.IOException;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import automationcore.Base;
+import constants.Messages;
+import pages.HomePage;
+import pages.LoginPage;
+import utilities.ExcelUtility;
 
-public class HomeTest extends Base
-{
-	
-	@Test(description="Verification of logout functionality from the home page")
-	public void verifyUserLogoutFromPage()
+public class HomeTest extends Base {
+
+	@Test(description="Verification of logout functionality from the home page after successful login")
+	public void verifySuccessfulUserLogoutFromHomePageAfterLogin() throws IOException
 	{
-		WebElement userName = driver.findElement(By.xpath("//input[@name='username']"));
-		userName.sendKeys("admin");
+		String username=ExcelUtility.readStringData(1, 0,"LoginPage");
+		String password=ExcelUtility.readStringData(1, 1,"LoginPage");
+		LoginPage login=new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username);
+		login.enterPasswordOnPasswordField(password);
+		login.clickOnCheckBox();
+		login.clickOnSignInButton();
 		
-		WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-		password.sendKeys("admin");
 		
-		WebElement rememberMe = driver.findElement(By.xpath("//label[@for='remember']"));
-		rememberMe.click();
-		
-		WebElement signIn = driver.findElement(By.xpath("//button[@type='submit']"));
-		signIn.click();
-
-		WebElement adminDropDown=driver.findElement(By.xpath("//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']"));
-		adminDropDown.click();
-		
-		WebElement logout=driver.findElement(By.xpath("//i[@class='ace-icon fa fa-power-off']"));
-		logout.click();
+		HomePage home=new HomePage(driver);
+		home.clickOnAdminButton();
+		home.clickOnLogoutButton();
+		boolean isStartSessionDisplayed=home.isStartSessionTitleDisplayed();
+		Assert.assertTrue(isStartSessionDisplayed,Messages.USERLOGOUTCREDENTIALERROR);
 	}
-	
+
 }
-		
-		

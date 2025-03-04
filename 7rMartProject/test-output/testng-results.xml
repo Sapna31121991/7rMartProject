@@ -2,24 +2,24 @@
 <testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-25T14:56:44 IST" name="Default suite" finished-at="2025-02-25T14:57:00 IST" duration-ms="15975">
+  <suite started-at="2025-03-04T19:46:54 IST" name="Default suite" finished-at="2025-03-04T19:47:09 IST" duration-ms="15048">
     <groups>
     </groups>
-    <test started-at="2025-02-25T14:56:44 IST" name="Default test" finished-at="2025-02-25T14:57:00 IST" duration-ms="15975">
-      <class name="testscript.SubCategoryTest">
-        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testscript.SubCategoryTest@223191a6]" started-at="2025-02-25T14:56:44 IST" name="initializeBrowser" finished-at="2025-02-25T14:56:56 IST" duration-ms="11959" status="PASS">
+    <test started-at="2025-03-04T19:46:54 IST" name="Default test" finished-at="2025-03-04T19:47:09 IST" duration-ms="15048">
+      <class name="testscript.AdminUsersTest">
+        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testscript.AdminUsersTest@223191a6]" started-at="2025-03-04T19:46:54 IST" name="initializeBrowser" finished-at="2025-03-04T19:47:03 IST" duration-ms="9462" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyAddNewItemToSubCategory()[pri:1, instance:testscript.SubCategoryTest@223191a6]" started-at="2025-02-25T14:56:56 IST" name="verifyAddNewItemToSubCategory" description="Verification of adding  new items into the subcategory module" finished-at="2025-02-25T14:57:00 IST" duration-ms="3917" status="PASS">
+        <test-method signature="verifyWhetherUserIsAbleToAddNewUserToTheUsersList()[pri:1, instance:testscript.AdminUsersTest@223191a6]" started-at="2025-03-04T19:47:03 IST" name="verifyWhetherUserIsAbleToAddNewUserToTheUsersList" description="Verification of adding a new admin user information to the users list by the user" finished-at="2025-03-04T19:47:09 IST" duration-ms="5508" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAddNewItemToSubCategory -->
-        <test-method is-config="true" signature="driverCloseAndQuit()[pri:0, instance:testscript.SubCategoryTest@223191a6]" started-at="2025-02-25T14:57:00 IST" name="driverCloseAndQuit" finished-at="2025-02-25T14:57:00 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- verifyWhetherUserIsAbleToAddNewUserToTheUsersList -->
+        <test-method is-config="true" signature="driverCloseAndQuit()[pri:0, instance:testscript.AdminUsersTest@223191a6]" started-at="2025-03-04T19:47:09 IST" name="driverCloseAndQuit" finished-at="2025-03-04T19:47:09 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverCloseAndQuit -->
-      </class> <!-- testscript.SubCategoryTest -->
+      </class> <!-- testscript.AdminUsersTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
