@@ -1,12 +1,7 @@
 package testscript;
-
-import static org.testng.Assert.assertTrue;
 import java.io.IOException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import automationcore.Base;
 import constants.Messages;
 import pages.LoginPage;

@@ -1,6 +1,5 @@
 package testscript;
 import java.io.IOException;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import automationcore.Base;
@@ -24,7 +23,8 @@ public class LoginTest extends Base {
 
 	}
 	
-	@Test(priority=2,description="Verification of login with valid username and invalid password")
+	@Test(priority=2,description="Ver"
+			+ "ification of login with valid username and invalid password")
 	public void verifyUserLoginWithValidUsernameAndInvalidPassword() throws IOException
 	{
 		String username=ExcelUtility.readStringData(2, 0,"LoginPage");

@@ -1,9 +1,12 @@
 package pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import constants.Constants;
 
 public class SubCategoryPage {
 	public WebDriver driver;
@@ -23,33 +26,33 @@ public class SubCategoryPage {
 	private WebElement subCategoryField;
 	@FindBy(xpath = "//input[@id='main_img']")
 	private WebElement chooseFile;
-	@FindBy(xpath ="//button[text()='Save']")
+	@FindBy(xpath = "//button[text()='Save']")
 	private WebElement saveSubCategory;
-	
-	@FindBy(xpath ="//a[@href='javascript:void(0)']")
+
+	@FindBy(xpath = "//a[@href='javascript:void(0)']")
 	private WebElement search;
-	@FindBy(xpath ="//select[@id='un']")
-	private WebElement categorySearch ;
-	@FindBy(xpath ="//input[@placeholder='Sub Category']")
-	private WebElement subCategorysearch ;
-	@FindBy(xpath ="//button[@name='Search']")
-	private WebElement search1 ;
-	
-	@FindBy(xpath="//i[@class='ace-icon fa fa-sync-alt']")
+	@FindBy(xpath = "//select[@id='un']")
+	private WebElement categorySearch;
+	@FindBy(xpath = "//input[@placeholder='Sub Category']")
+	private WebElement subCategorysearch;
+	@FindBy(xpath = "//button[@name='Search']")
+	private WebElement search1;
+
+	@FindBy(xpath = "//i[@class='ace-icon fa fa-sync-alt']")
 	private WebElement reset;
-	
-	@FindBy(xpath="//h5[text()=' Alert!']")
+
+	@FindBy(xpath = "//h5[text()=' Alert!']")
 	private WebElement newSubCategory;
-	@FindBy(xpath="//h4[text()='List Sub Categories']")
+	@FindBy(xpath = "//h4[text()='List Sub Categories']")
 	private WebElement searchSubCategory;
-	@FindBy(xpath="//h4[text()='List Sub Categories']")
+	@FindBy(xpath = "//h4[text()='List Sub Categories']")
 	private WebElement refresh;
 
 	public void clickOnSubCategory() {
 		subCategory.click();
 	}
 
-	//add
+	// add
 	public void clickOnAddNewButton() {
 		addNewItem.click();
 	}
@@ -65,15 +68,14 @@ public class SubCategoryPage {
 	}
 
 	public void clickOnChooseFile() {
-		chooseFile.sendKeys("C:\\Users\\PC\\git\\7rMartProject\\7rMartProject\\src\\test\\resources\\hele.jpg");
+		chooseFile.sendKeys(Constants.imageFile);
 	}
 
-	public void clickOnSaveButton()
-	{
+	public void clickOnSaveButton() {
 		saveSubCategory.submit();
-		}
+	}
 
-	//search
+	// search
 	public void clickOnSearchButtonOnTheSubCategoru() {
 		search.click();
 	}
@@ -91,22 +93,21 @@ public class SubCategoryPage {
 	public void clickOnSearchButton() {
 		search1.click();
 	}
-	
-	//reset
-	public void clickOnResetButton()
-	{
+
+	// reset
+	public void clickOnResetButton() {
 		reset.click();
 	}
-	public String getTextFromSubCategoryAlert()
-	{
+
+	public String getTextFromSubCategoryAlert() {
 		return newSubCategory.getText();
 	}
-	public boolean isDisplayedSearchSubCategoryPage()
-	{
+
+	public boolean isDisplayedSearchSubCategoryPage() {
 		return searchSubCategory.isDisplayed();
 	}
-	public boolean isDisplayedRefreshSubCategoryPage()
-	{
+
+	public boolean isDisplayedRefreshSubCategoryPage() {
 		return refresh.isDisplayed();
 	}
 }
