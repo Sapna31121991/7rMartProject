@@ -1,4 +1,5 @@
 package testscript;
+
 import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,6 +8,7 @@ import constants.Messages;
 import pages.AdminUsersPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.FakerUtility;
 
 public class AdminUsersTest extends Base {
 
@@ -25,13 +27,13 @@ public class AdminUsersTest extends Base {
 		adminUsers.clickOnAdminusersButton();
 		adminUsers.clickOnManageUsersButton();
 		adminUsers.clickOnAddNewAdminUsersInformations();
-		String userNameAdmin = ExcelUtility.readStringData(3, 0, "AdminUsersPage");
-		String passwordAdmin = ExcelUtility.readStringData(3, 1, "AdminUsersPage");
+		FakerUtility faker = new FakerUtility();
+		String userNameAdmin = faker.createRandomUserName();
+		String passwordAdmin = faker.createRandomPassword();
 		adminUsers.enterUserNameOnUserNameAdminField(userNameAdmin);
 		adminUsers.enterPasswordOnPasswordAdminField(passwordAdmin);
 		adminUsers.clickOnUserTypeFromDropDownMenu();
 		adminUsers.clickOnSaveButton();
-
 		String expectedResult = "Alert!";
 		String actualResult = adminUsers.getTextFromAdminUsersAlert();
 		Assert.assertEquals(actualResult, expectedResult, Messages.ADDNEWUSERSTOTHEUSERSLISTCREDENTIALERROR);
@@ -76,9 +78,7 @@ public class AdminUsersTest extends Base {
 		AdminUsersPage adminUsers = new AdminUsersPage(driver);
 		adminUsers.clickOnAdminusersButton();
 		adminUsers.clickOnManageUsersButton();
-
 		adminUsers.clickOnResetButtonForAdminUsers();
-
 		boolean isdisplayedRefreshPageForAdminUsers = adminUsers.isDisplayedRefreshPageForAdminUsers();
 		Assert.assertTrue(isdisplayedRefreshPageForAdminUsers, Messages.REFRESHUSERSPAGECREDENTIALERROR);
 

@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-06T15:13:09 IST" name="Suite" finished-at="2025-03-06T15:16:54 IST" duration-ms="224031">
+  <suite started-at="2025-03-11T15:50:11 IST" name="Grouping" finished-at="2025-03-11T15:51:21 IST" duration-ms="69563">
     <groups>
+      <group name="smoke">
+        <method signature="LoginTest.verifyUserLoginWithValidUsernameAndValidPassword()[pri:1, instance:testscript.LoginTest@40005471]" name="verifyUserLoginWithValidUsernameAndValidPassword" class="testscript.LoginTest"/>
+        <method signature="LoginTest.verifyUserLoginWithValidUsernameAndInvalidPassword()[pri:2, instance:testscript.LoginTest@40005471]" name="verifyUserLoginWithValidUsernameAndInvalidPassword" class="testscript.LoginTest"/>
+      </group> <!-- smoke -->
     </groups>
-    <test started-at="2025-03-06T15:13:09 IST" name="Test" finished-at="2025-03-06T15:16:54 IST" duration-ms="224031">
-      <class name="testscript.SubCategoryTest">
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:13:10 IST" name="initializeBrowser" finished-at="2025-03-06T15:14:18 IST" duration-ms="68137" status="PASS">
+    <test started-at="2025-03-11T15:50:11 IST" name="Test" finished-at="2025-03-11T15:51:21 IST" duration-ms="69563">
+      <class name="testscript.LoginTest">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.LoginTest@40005471]" started-at="2025-03-11T15:50:11 IST" name="initializeBrowser" finished-at="2025-03-11T15:50:30 IST" duration-ms="19065" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,22 +22,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifywhetherUserIsAbleToAddNewItemToTheSubCategoryList()[pri:1, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:14:18 IST" name="verifywhetherUserIsAbleToAddNewItemToTheSubCategoryList" description="Verification of adding  new items into the subcategory module" finished-at="2025-03-06T15:14:51 IST" duration-ms="33390" status="PASS">
+        <test-method signature="verifyUserLoginWithValidUsernameAndValidPassword()[pri:1, instance:testscript.LoginTest@40005471]" started-at="2025-03-11T15:50:30 IST" name="verifyUserLoginWithValidUsernameAndValidPassword" description="Verification of login with valid username and valid password" finished-at="2025-03-11T15:50:43 IST" duration-ms="13101" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifywhetherUserIsAbleToAddNewItemToTheSubCategoryList -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:14:51 IST" name="driverQuit" finished-at="2025-03-06T15:14:51 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- verifyUserLoginWithValidUsernameAndValidPassword -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.LoginTest@40005471]" started-at="2025-03-11T15:50:43 IST" name="driverQuit" finished-at="2025-03-11T15:50:43 IST" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifywhetherUserIsAbleToAddNewItemToTheSubCategoryList status=SUCCESS method=SubCategoryTest.verifywhetherUserIsAbleToAddNewItemToTheSubCategoryList()[pri:1, instance:testscript.SubCategoryTest@7b4c50bc] output={null}]]]>
+                <![CDATA[[TestResult name=verifyUserLoginWithValidUsernameAndValidPassword status=SUCCESS method=LoginTest.verifyUserLoginWithValidUsernameAndValidPassword()[pri:1, instance:testscript.LoginTest@40005471] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:14:51 IST" name="initializeBrowser" finished-at="2025-03-06T15:15:52 IST" duration-ms="60587" status="PASS">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.LoginTest@40005471]" started-at="2025-03-11T15:50:43 IST" name="initializeBrowser" finished-at="2025-03-11T15:51:19 IST" duration-ms="35385" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -44,48 +48,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyWhetherUserIsAbleToSearchItemsFromSubCategoryList()[pri:2, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:15:52 IST" name="verifyWhetherUserIsAbleToSearchItemsFromSubCategoryList" description="Verification of search an item in the subcategory list" finished-at="2025-03-06T15:16:07 IST" duration-ms="15411" status="PASS">
+        <test-method signature="verifyUserLoginWithValidUsernameAndInvalidPassword()[pri:2, instance:testscript.LoginTest@40005471]" started-at="2025-03-11T15:51:19 IST" name="verifyUserLoginWithValidUsernameAndInvalidPassword" description="Verification of login with valid username and invalid password" finished-at="2025-03-11T15:51:21 IST" duration-ms="1846" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyWhetherUserIsAbleToSearchItemsFromSubCategoryList -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:16:07 IST" name="driverQuit" finished-at="2025-03-06T15:16:07 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- verifyUserLoginWithValidUsernameAndInvalidPassword -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.LoginTest@40005471]" started-at="2025-03-11T15:51:21 IST" name="driverQuit" finished-at="2025-03-11T15:51:21 IST" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyWhetherUserIsAbleToSearchItemsFromSubCategoryList status=SUCCESS method=SubCategoryTest.verifyWhetherUserIsAbleToSearchItemsFromSubCategoryList()[pri:2, instance:testscript.SubCategoryTest@7b4c50bc] output={null}]]]>
+                <![CDATA[[TestResult name=verifyUserLoginWithValidUsernameAndInvalidPassword status=SUCCESS method=LoginTest.verifyUserLoginWithValidUsernameAndInvalidPassword()[pri:2, instance:testscript.LoginTest@40005471] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- driverQuit -->
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:16:07 IST" name="initializeBrowser" finished-at="2025-03-06T15:16:48 IST" duration-ms="40463" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyWhtherUserIsAbleToRefreshPageUsingResetButton()[pri:3, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:16:48 IST" name="verifyWhtherUserIsAbleToRefreshPageUsingResetButton" description="Verification of refresh functionality for the subcategory module" finished-at="2025-03-06T15:16:54 IST" duration-ms="5833" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyWhtherUserIsAbleToRefreshPageUsingResetButton -->
-        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscript.SubCategoryTest@7b4c50bc]" started-at="2025-03-06T15:16:54 IST" name="driverQuit" finished-at="2025-03-06T15:16:54 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyWhtherUserIsAbleToRefreshPageUsingResetButton status=SUCCESS method=SubCategoryTest.verifyWhtherUserIsAbleToRefreshPageUsingResetButton()[pri:3, instance:testscript.SubCategoryTest@7b4c50bc] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- driverQuit -->
-      </class> <!-- testscript.SubCategoryTest -->
+      </class> <!-- testscript.LoginTest -->
     </test> <!-- Test -->
-  </suite> <!-- Suite -->
+  </suite> <!-- Grouping -->
 </testng-results>
