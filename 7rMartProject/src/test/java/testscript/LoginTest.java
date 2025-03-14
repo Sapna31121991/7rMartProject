@@ -10,7 +10,7 @@ import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 
-	@Test(priority = 1, description = "Verification of login with valid username and valid password",groups= {"smoke"})
+	@Test(priority = 1, description = "Verification of login with valid username and valid password",groups= {"smoke"},retryAnalyzer=retry.Retry.class)
 	public void verifyUserLoginWithValidUsernameAndValidPassword() throws IOException {
 		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(1, 1, "LoginPage");

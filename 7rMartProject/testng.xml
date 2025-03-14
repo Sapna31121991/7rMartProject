@@ -8,10 +8,10 @@
 	</listeners>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testscript.AdminUsersTest">
+			<class name="testscript.LoginTest">
 				<methods>
 					<include
-						name="verifyWhetherUserIsAbleToAddNewUserToTheUsersList"></include>
+						name="verifyUserLoginWithValidUsernameAndValidPassword"></include>
 				</methods>
 			</class>
 		</classes>
