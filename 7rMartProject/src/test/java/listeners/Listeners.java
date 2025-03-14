@@ -15,32 +15,22 @@ public class Listeners extends Base implements ITestListener
 	ExtentTest test;
 	ExtentReports extent = ExtentReportUtility.createExtentReports();
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
-
-	// Triggered when a test starts
 	public void onTestStart(ITestResult result) // before executonn fetch name
 	{
 		ITestListener.super.onTestStart(result);// report life cycle monitoring
 		test = extent.createTest(result.getMethod().getMethodName());
 		extentTest.set(test);
 	}
-
-	// called when test case executes successfully
 	public void onTestSuccess(ITestResult result) // test method success
 	{
 		ITestListener.super.onTestSuccess(result);
 		extentTest.get().log(Status.PASS, "Test Passed");
 	}
-
-	// Called when a test method fails
 	public void onTestFailure(ITestResult result) {
-		// calls the default implementation from ITestListner
 		ITestListener.super.onTestFailure(result);
-		// logs the test status as 'FAIL'in the extent report
 		extentTest.get().log(Status.FAIL, "Test Failed");
-		// Captures and logs the exception message that caused the test to fail
 		extentTest.get().fail(result.getThrowable());
 		driver = null;
-		// Retrieves the name of the failed method
 		String testMethodName = result.getMethod().getMethodName();
 		try {
 			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
