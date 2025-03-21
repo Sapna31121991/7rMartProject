@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class LoginPage {
 	public WebDriver driver;
 
@@ -26,21 +28,29 @@ public class LoginPage {
 	private WebElement dashBoard;
 	@FindBy(xpath="//b[text()='7rmart supermarket']") 
 	private WebElement title;
-
-	public void enterUserNameOnUserNameField(String username) {
+	
+	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") 
+	private WebElement titleWindow;
+	
+	public LoginPage enterUserNameOnUserNameField(String username) {
 		userNameField.sendKeys(username);
+		return this;
 	}
 
-	public void enterPasswordOnPasswordField(String password) {
+	public LoginPage enterPasswordOnPasswordField(String password) {
 		passwordField.sendKeys(password);
+		return this;
 	}
 
-	public void clickOnCheckBox() {
-		rememberMe.click();
+	public LoginPage clickOnCheckBox() {
+		PageUtility page=new PageUtility();
+		page.handlingCheckBox(rememberMe);
+		return this;
 	}
 
-	public void clickOnSignInButton() {
+	public HomePage clickOnSignInButton() {
 		signIn.click();
+		return new HomePage(driver);
 	}
 	public boolean isDashBoardDisplayed()
 	{
@@ -50,5 +60,12 @@ public class LoginPage {
 	{
 		return title.isDisplayed();
 	}
+	public boolean isTitleWindowDisplayed()
+	{
+		return titleWindow.isDisplayed();
+	}
 
+	
+	////h5[contains(text(),'Alert!')]
+	//h5[contains(text(),'Alert!')]
 }

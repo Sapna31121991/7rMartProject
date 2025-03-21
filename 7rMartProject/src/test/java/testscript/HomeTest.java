@@ -1,4 +1,5 @@
 package testscript;
+
 import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,23 +11,18 @@ import utilities.ExcelUtility;
 
 public class HomeTest extends Base {
 
-	@Test(description="Verification of logout functionality from the home page after successful login")
-	public void verifySuccessfulUserLogoutFromHomePageAfterLogin() throws IOException
-	{
-		String username=ExcelUtility.readStringData(1, 0,"LoginPage");
-		String password=ExcelUtility.readStringData(1, 1,"LoginPage");
-		LoginPage login=new LoginPage(driver);
-		login.enterUserNameOnUserNameField(username);
-		login.enterPasswordOnPasswordField(password);
-		login.clickOnCheckBox();
-		login.clickOnSignInButton();
-		
-		
-		HomePage home=new HomePage(driver);
+	@Test(description = "Verification of logout functionality from the home page after successful login")
+	public void verifySuccessfulUserLogoutFromHomePageAfterLogin() throws IOException {
+		HomePage home;
+		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
+		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
+		LoginPage login = new LoginPage(driver);
+		login.enterUserNameOnUserNameField(username).enterPasswordOnPasswordField(password).clickOnCheckBox();
+		home = login.clickOnSignInButton();
 		home.clickOnAdminButton();
-		home.clickOnLogoutButton();
-		boolean isStartSessionDisplayed=home.isStartSessionTitleDisplayed();
-		Assert.assertTrue(isStartSessionDisplayed,Messages.USERLOGOUTCREDENTIALERROR);
+		login = home.clickOnLogoutButton();
+		boolean isStartSessionDisplayed = home.isStartSessionTitleDisplayed();
+		Assert.assertTrue(isStartSessionDisplayed, Messages.USERLOGOUTCREDENTIALERROR);
 	}
 
 }

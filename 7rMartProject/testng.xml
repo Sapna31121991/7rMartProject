@@ -11,10 +11,11 @@
 			<class name="testscript.LoginTest">
 				<methods>
 					<include
-						name="verifyUserLoginWithValidUsernameAndValidPassword"></include>
+						name="verifyUserLoginWithInvalidUsernameAndInvalidPassword"></include>
 				</methods>
 			</class>
 		</classes>
 	</test> <!--Test -->
 </suite> <!--
 Suite -->
+

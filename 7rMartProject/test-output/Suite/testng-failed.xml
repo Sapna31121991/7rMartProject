@@ -9,8 +9,8 @@
     <classes>
       <class name="testscript.LoginTest">
         <methods>
-          <include name="verifyUserLoginWithValidUsernameAndValidPassword"/>
           <include name="initializeBrowser"/>
+          <include name="verifyUserLoginWithInvalidUsernameAndValidPassword" invocation-numbers="0"/>
           <include name="driverQuit"/>
         </methods>
       </class> <!-- testscript.LoginTest -->

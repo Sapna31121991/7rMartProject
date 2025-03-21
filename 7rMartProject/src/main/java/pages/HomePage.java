@@ -17,19 +17,50 @@ public class HomePage {
 	private WebElement adminDropDown;
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-power-off']")
 	private WebElement logout;
-	
-	@FindBy(xpath="//p[text()='Sign in to start your session']")
+
+	@FindBy(xpath = "//p[text()='Sign in to start your session']")
 	private WebElement startSession;
 
-	public void clickOnAdminButton() {
-		adminDropDown.click();
-	} 
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']")
+	private WebElement subCategory;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news'  or @href='https://groceryapp.uniqassosiates.com/admin/list-news']")
+	private WebElement manageNews;
+	@FindBy(xpath = "//i[@class='nav-icon fas fa-users']")
+	private WebElement adminUsers;
+	@FindBy(xpath = "//p[text()='Manage Users']")
+	private WebElement manageUser;
 
-	public void clickOnLogoutButton() {
-		logout.click();
+	public SubCategoryPage clickOnSubCategory() {
+		subCategory.click();
+		return new SubCategoryPage(driver);
 	}
-	public boolean isStartSessionTitleDisplayed()
-	{
+
+	public ManageNewsPage clickOnManageNewsButton() {
+		manageNews.click();
+		return new ManageNewsPage(driver);
+	}
+
+	public HomePage clickOnAdminusersButton() {
+		adminUsers.click();
+		return this;
+	}
+
+	public AdminUsersPage clickOnManageUsersButton() {
+		manageUser.click();
+		return new AdminUsersPage(driver);
+	}
+
+	public HomePage clickOnAdminButton() {
+		adminDropDown.click();
+		return this;
+	}
+
+	public LoginPage clickOnLogoutButton() {
+		logout.click();
+		return new LoginPage(driver);
+	}
+
+	public boolean isStartSessionTitleDisplayed() {
 		return startSession.isDisplayed();
 	}
 }

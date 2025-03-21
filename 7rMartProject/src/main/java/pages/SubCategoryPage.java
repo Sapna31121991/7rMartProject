@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import constants.Constants;
+import utilities.PageUtility;
 
 public class SubCategoryPage {
 	public WebDriver driver;
@@ -48,55 +49,55 @@ public class SubCategoryPage {
 	@FindBy(xpath = "//h4[text()='List Sub Categories']")
 	private WebElement refresh;
 
-	public void clickOnSubCategory() {
+	public SubCategoryPage clickOnSubCategory() {
 		subCategory.click();
+		return new SubCategoryPage(driver);
 	}
-
-	// add
-	public void clickOnAddNewButton() {
+	public SubCategoryPage clickOnAddNewButton() {
 		addNewItem.click();
+		return this;
 	}
-
-	public void clickOnCategoryFromDropDownMenu() {
-		Select select = new Select(categoryselect);
-		select.selectByIndex(5);
-		categoryselect.click();
+	public SubCategoryPage clickOnCategoryFromDropDownMenu() {
+		PageUtility page=new PageUtility();
+		page.selectDropdownWithIndex(categoryselect, 4);
+		return this;
 	}
-
-	public void enterSubCategoryOnSubCategoryField(String subCategorySelect) {
+	public SubCategoryPage enterSubCategoryOnSubCategoryField(String subCategorySelect) {
 		subCategoryField.sendKeys(subCategorySelect);
+		return this;
 	}
-
-	public void clickOnChooseFile() {
-		chooseFile.sendKeys(Constants.imageFile);
+	public SubCategoryPage clickOnChooseFile() {
+		chooseFile.sendKeys(Constants.IMAGEFILE );
+		return this;
 	}
-
-	public void clickOnSaveButton() {
+	public SubCategoryPage clickOnSaveButton() {
 		saveSubCategory.submit();
+		return this;
 	}
-
-	// search
-	public void clickOnSearchButtonOnTheSubCategoru() {
+	public SubCategoryPage clickOnSearchButtonOnTheSubCategoru() {
 		search.click();
+		return this;
 	}
 
-	public void clickOnCategoryDropDownMenuForCategorysearch() {
-		Select select = new Select(categorySearch);
-		select.selectByIndex(11);
-		categorySearch.click();
+	public SubCategoryPage clickOnCategoryDropDownMenuForCategorysearch() {
+		PageUtility page=new PageUtility();
+		page.selectDropdownWithIndex(categorySearch, 11);
+		return this;
 	}
 
-	public void enterSubcategoryForSearchSubCategory(String subCategorySearch) {
+	public SubCategoryPage enterSubcategoryForSearchSubCategory(String subCategorySearch) {
 		subCategorysearch.click();
+		return this;
 	}
 
-	public void clickOnSearchButton() {
+	public SubCategoryPage clickOnSearchButton() {
 		search1.click();
+		return this;
 	}
 
-	// reset
-	public void clickOnResetButton() {
+	public SubCategoryPage clickOnResetButton() {
 		reset.click();
+		return this;
 	}
 
 	public String getTextFromSubCategoryAlert() {

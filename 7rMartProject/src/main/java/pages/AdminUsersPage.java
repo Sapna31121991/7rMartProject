@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminUsersPage {
 	public WebDriver driver;
 
@@ -28,7 +30,6 @@ public class AdminUsersPage {
 	private WebElement userType;
 	@FindBy(xpath = "//i[@class='fa fa-save']")
 	private WebElement save;
-
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchAdminUsers;
 	@FindBy(xpath = "//input[@id='un']")
@@ -37,67 +38,64 @@ public class AdminUsersPage {
 	private WebElement searchUserType;
 	@FindBy(xpath = "//i[@class='fa fa-search']")
 	private WebElement searchButton;
-
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-sync-alt']")
 	private WebElement resetAdminUsers;
-
 	@FindBy(xpath = "//h5[text()=' Alert!']")
 	private WebElement createNewUser;
 	@FindBy(xpath = "//h1[text()='Admin Users']")
 	private WebElement searchAdminUser;
 	@FindBy(xpath = "//h4[text()='Admin Users']")
 	private WebElement refresh;
-
-	public void clickOnAdminusersButton() {
-		adminUsers.click();
-	}
-
-	public void clickOnManageUsersButton() {
-		manageUser.click();
-	}
-
-	public void clickOnAddNewAdminUsersInformations() {
+	public AdminUsersPage clickOnAddNewAdminUsersInformations() {
 		addNewUser.click();
+		return this;
 	}
 
-	public void enterUserNameOnUserNameAdminField(String userNameAdmin) {
+	public AdminUsersPage enterUserNameOnUserNameAdminField(String userNameAdmin) {
 		userNameAdminField.sendKeys(userNameAdmin);
+		return this;
 	}
 
-	public void enterPasswordOnPasswordAdminField(String passwordAdmin) {
+	public AdminUsersPage enterPasswordOnPasswordAdminField(String passwordAdmin) {
 		passwordAdminField.sendKeys(passwordAdmin);
+		return this;
 	}
 
-	public void clickOnUserTypeFromDropDownMenu() {
-		Select select = new Select(userType);
-		select.selectByIndex(2);
-		userType.click();
+	public AdminUsersPage clickOnUserTypeFromDropDownMenu() {
+		PageUtility page=new PageUtility();
+		page.selectDropdownWithIndex(userType, 2);
+		return this;
 	}
 
-	public void clickOnSaveButton() {
+	public AdminUsersPage clickOnSaveButton() {
 		save.click();
+		return this;
 	}
 
-	public void clickOnSearchUsersAdminInformations() {
+	public AdminUsersPage clickOnSearchUsersAdminInformations() {
 		searchAdminUsers.click();
+		return this;
 	}
 
-	public void enterSearchAdminUsersUsername(String adminUserName) {
+	public AdminUsersPage enterSearchAdminUsersUsername(String adminUserName) {
 		searchAdminUserNameField.sendKeys(adminUserName);
+		return this;
 	}
 
-	public void clickOnSearchUserTypeFromDropDownMenu() {
-		Select select = new Select(searchUserType);
-		select.selectByIndex(2);
-		searchUserType.click();
+	public AdminUsersPage clickOnSearchUserTypeFromDropDownMenu() {
+		PageUtility page=new PageUtility();
+		page.selectDropdownWithIndex(searchUserType, 2);
+		return this;
 	}
 
-	public void clickOnSearchButton() {
+	public AdminUsersPage clickOnSearchButton() {
 		searchButton.click();
+		return this;
 	}
 
-	public void clickOnResetButtonForAdminUsers() {
+	public AdminUsersPage clickOnResetButtonForAdminUsers() {
 		resetAdminUsers.click();
+		return this;
 	}
 
 	public String getTextFromAdminUsersAlert() {

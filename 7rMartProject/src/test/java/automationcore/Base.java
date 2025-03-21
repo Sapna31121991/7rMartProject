@@ -1,7 +1,9 @@
 package automationcore;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,14 +13,22 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+
+import constants.Constants;
 import utilities.ScreenShotUtility;
+import utilities.WaitUtility;
 
 public class Base {
+	Properties prop;
+	FileInputStream fs;
 	public WebDriver driver;
 
-	@BeforeMethod(alwaysRun=true)
+	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 	public void initializeBrowser(String browser) throws Exception {
+		prop = new Properties();
+		fs = new FileInputStream(Constants.CONFIGFILE);
+		prop.load(fs);
 		if (browser.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
 		} else if (browser.equalsIgnoreCase("firefox")) {
@@ -29,21 +39,18 @@ public class Base {
 		} else {
 			throw new Exception("Invalid browser");
 		}
-
-		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
+		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		WaitUtility wait = new WaitUtility();
+		wait.implicitWait(driver);
 	}
 
-	@AfterMethod(alwaysRun=true)
-	// This method handles quitting the WebDriver after the test execution
-	// It also captures a screenshot if the test fails
-	// ITestResult-->interface in TestNG that manages lifecycle of a testcase result
+	@AfterMethod(alwaysRun = true)
 	public void driverQuit(ITestResult iTestResult) throws IOException {
 		if (iTestResult.getStatus() == ITestResult.FAILURE) {
 			ScreenShotUtility screenShot = new ScreenShotUtility();
 			screenShot.getScreenshot(driver, iTestResult.getName());
 		}
-		// driver.quit();
+	//	driver.quit();
 	}
 }
