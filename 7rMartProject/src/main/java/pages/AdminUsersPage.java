@@ -1,13 +1,9 @@
 package pages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-
 import utilities.PageUtility;
-
 public class AdminUsersPage {
 	public WebDriver driver;
 
@@ -46,6 +42,7 @@ public class AdminUsersPage {
 	private WebElement searchAdminUser;
 	@FindBy(xpath = "//h4[text()='Admin Users']")
 	private WebElement refresh;
+
 	public AdminUsersPage clickOnAddNewAdminUsersInformations() {
 		addNewUser.click();
 		return this;
@@ -62,7 +59,7 @@ public class AdminUsersPage {
 	}
 
 	public AdminUsersPage clickOnUserTypeFromDropDownMenu() {
-		PageUtility page=new PageUtility();
+		PageUtility page = new PageUtility();
 		page.selectDropdownWithIndex(userType, 2);
 		return this;
 	}
@@ -83,7 +80,7 @@ public class AdminUsersPage {
 	}
 
 	public AdminUsersPage clickOnSearchUserTypeFromDropDownMenu() {
-		PageUtility page=new PageUtility();
+		PageUtility page = new PageUtility();
 		page.selectDropdownWithIndex(searchUserType, 2);
 		return this;
 	}

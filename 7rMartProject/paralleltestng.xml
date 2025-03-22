@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="ParallelTesting" parallel="tests" thread-count="2">
-	<test name="Test">
+<suite name="ParallelTesting" parallel="tests" thread-count="3">
+	<test name="Test1">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="testscript.LoginTest"></class>
-			<class name="testscript.AdminUsersTest"></class>
+			<class name="testscript.LoginTest">
+				<methods>
+					<include
+						name="verifyUserLoginWithInvalidUsernameAndValidPassword"></include>
+				</methods>
+			</class>
 		</classes>
-	</test><!--Test -->
+	</test> <!--
+	Test -->
+	<test name="Test2">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="testscript.HomeTest">
+				<methods>
+					<include
+						name="verifySuccessfulUserLogoutFromHomePageAfterLogin"></include>
+				</methods>
+			</class>
+		</classes>
+	</test> <!--
+	Test -->
 </suite> <!--
 Suite -->

@@ -1,5 +1,4 @@
 package testscript;
-
 import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -58,8 +57,6 @@ public class LoginTest extends Base {
 		boolean isTitleDisplayed = login.isTitleDisplayed();
 		Assert.assertTrue(isTitleDisplayed, Messages.INVALIDCREDENTIALERROR);
 
-
-	
 	}
 
 	@DataProvider(name = "loginProvider")
@@ -68,9 +65,3 @@ public class LoginTest extends Base {
 				new Object[] { "admi", "admin" }, new Object[] { "admi", "ami" } };
 	}
 }
-
-
-
-
-
-

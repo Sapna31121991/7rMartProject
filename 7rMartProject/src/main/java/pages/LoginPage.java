@@ -1,18 +1,15 @@
 package pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import utilities.PageUtility;
-
 public class LoginPage {
 	public WebDriver driver;
-
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);// page factory is a class,initElements is a method to initialize values
-												// or elements
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(xpath = "//input[@name='username']")
@@ -23,15 +20,12 @@ public class LoginPage {
 	private WebElement rememberMe;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement signIn;
-	
-	@FindBy(xpath="//p[text()='Dashboard']") 
+	@FindBy(xpath = "//p[text()='Dashboard']")
 	private WebElement dashBoard;
-	@FindBy(xpath="//b[text()='7rmart supermarket']") 
+	@FindBy(xpath = "//b[text()='7rmart supermarket']")
 	private WebElement title;
-	
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") 
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement titleWindow;
-	
 	public LoginPage enterUserNameOnUserNameField(String username) {
 		userNameField.sendKeys(username);
 		return this;
@@ -43,7 +37,7 @@ public class LoginPage {
 	}
 
 	public LoginPage clickOnCheckBox() {
-		PageUtility page=new PageUtility();
+		PageUtility page = new PageUtility();
 		page.handlingCheckBox(rememberMe);
 		return this;
 	}
@@ -52,20 +46,16 @@ public class LoginPage {
 		signIn.click();
 		return new HomePage(driver);
 	}
-	public boolean isDashBoardDisplayed()
-	{
+
+	public boolean isDashBoardDisplayed() {
 		return dashBoard.isDisplayed();
 	}
-	public boolean isTitleDisplayed()
-	{
+
+	public boolean isTitleDisplayed() {
 		return title.isDisplayed();
 	}
-	public boolean isTitleWindowDisplayed()
-	{
+
+	public boolean isTitleWindowDisplayed() {
 		return titleWindow.isDisplayed();
 	}
-
-	
-	////h5[contains(text(),'Alert!')]
-	//h5[contains(text(),'Alert!')]
 }

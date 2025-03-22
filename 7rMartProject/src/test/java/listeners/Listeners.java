@@ -1,31 +1,32 @@
 package listeners;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;   
+import com.aventstack.extentreports.Status;
 import automationcore.Base;
 import utilities.ExtentReportUtility;
 
-public class Listeners extends Base implements ITestListener
-{
+public class Listeners extends Base implements ITestListener {
 	ExtentTest test;
 	ExtentReports extent = ExtentReportUtility.createExtentReports();
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+
 	public void onTestStart(ITestResult result) // before executonn fetch name
 	{
 		ITestListener.super.onTestStart(result);// report life cycle monitoring
 		test = extent.createTest(result.getMethod().getMethodName());
 		extentTest.set(test);
 	}
+
 	public void onTestSuccess(ITestResult result) // test method success
 	{
 		ITestListener.super.onTestSuccess(result);
 		extentTest.get().log(Status.PASS, "Test Passed");
 	}
+
 	public void onTestFailure(ITestResult result) {
 		ITestListener.super.onTestFailure(result);
 		extentTest.get().log(Status.FAIL, "Test Failed");
@@ -72,7 +73,7 @@ public class Listeners extends Base implements ITestListener
 
 	public void onFinish(ITestContext context) {
 		ITestListener.super.onFinish(context);
-		extent.flush();// log into report
+		extent.flush();
 	}
 
 }

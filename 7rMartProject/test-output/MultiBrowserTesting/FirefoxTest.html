@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Mar 21 13:28:38 IST 2025</td>
+<td>Started on:</td><td>Sat Mar 22 16:21:51 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>133 seconds (133699 ms)</td>
+<tr><td>Total time:</td><td>133 seconds (133601 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,36 +76,48 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testscript.AdminUsersTest.initializeBrowser()'><b>initializeBrowser</b><br>Test class: testscript.AdminUsersTest<br>Parameters: firefox</td>
-<td><div><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Failed to read marionette port 
-Host info: host: &apos;DESKTOP-HAIIK4K&apos;, ip: &apos;192.168.1.14&apos;
-Build info: version: &apos;4.28.1&apos;, revision: &apos;73f5ad48a2&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:debuggerAddress: true, moz:firefoxOptions: {binary: C:\Program Files\Mozilla Fi..., prefs: {remote.active-protocols: 3}}}]}]
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:187)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:245)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:174)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:155)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:150)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:132)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:127)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:112)
-	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:102)
-	at automationcore.Base.initializeBrowser(Base.java:35)
+<td title='testscript.AdminUsersTest.driverQuit()'><b>driverQuit</b><br>Test class: testscript.AdminUsersTest<br>Parameters: [TestResult name=verifyWhetherUserIsAbleToAddNewUserToTheUsersList status=SKIP method=AdminUsersTest.verifyWhetherUserIsAbleToAddNewUserToTheUsersList()[pri:1, instance:testscript.AdminUsersTest@7b02881e] output={null}]</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.quit()&quot; because &quot;this.driver&quot; is null
+	at automationcore.Base.driverQuit(Base.java:51)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1575)
-... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1844084665", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1844084665'><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Failed to read marionette port 
+... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1635614087", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1635614087'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.quit()&quot; because &quot;this.driver&quot; is null
+	at automationcore.Base.driverQuit(Base.java:51)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:802)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:622)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>testscript.AdminUsersTest@7b02881e</td></tr>
+<tr>
+<td title='testscript.AdminUsersTest.initializeBrowser()'><b>initializeBrowser</b><br>Test class: testscript.AdminUsersTest<br>Parameters: firefox</td>
+<td><div><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: unknown error 
 Host info: host: &apos;DESKTOP-HAIIK4K&apos;, ip: &apos;192.168.1.14&apos;
 Build info: version: &apos;4.28.1&apos;, revision: &apos;73f5ad48a2&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23&apos;
@@ -126,7 +138,35 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:127)
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:112)
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:102)
-	at automationcore.Base.initializeBrowser(Base.java:35)
+	at automationcore.Base.initializeBrowser(Base.java:32)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1245062493", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1245062493'><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: unknown error 
+Host info: host: &apos;DESKTOP-HAIIK4K&apos;, ip: &apos;192.168.1.14&apos;
+Build info: version: &apos;4.28.1&apos;, revision: &apos;73f5ad48a2&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, moz:debuggerAddress: true, moz:firefoxOptions: {binary: C:\Program Files\Mozilla Fi..., prefs: {remote.active-protocols: 3}}}]}]
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:187)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:245)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:174)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:155)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:150)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:132)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:127)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:112)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:102)
+	at automationcore.Base.initializeBrowser(Base.java:32)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -165,7 +205,7 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 </tr>
 <tr>
 <td title='testscript.AdminUsersTest.verifyWhetherUserIsAbleToAddNewUserToTheUsersList()'><b>verifyWhetherUserIsAbleToAddNewUserToTheUsersList</b><br>Test class: testscript.AdminUsersTest<br>Test method: Verification of adding a new admin user information to the users list by the user</td>
-<td><div><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Failed to read marionette port 
+<td><div><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: unknown error 
 Host info: host: &apos;DESKTOP-HAIIK4K&apos;, ip: &apos;192.168.1.14&apos;
 Build info: version: &apos;4.28.1&apos;, revision: &apos;73f5ad48a2&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23&apos;
@@ -186,14 +226,14 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:127)
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:112)
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:102)
-	at automationcore.Base.initializeBrowser(Base.java:35)
+	at automationcore.Base.initializeBrowser(Base.java:32)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1575)
-... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1093166190", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1093166190'><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Failed to read marionette port 
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1387201858", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1387201858'><pre>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: unknown error 
 Host info: host: &apos;DESKTOP-HAIIK4K&apos;, ip: &apos;192.168.1.14&apos;
 Build info: version: &apos;4.28.1&apos;, revision: &apos;73f5ad48a2&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23&apos;
@@ -214,7 +254,7 @@ Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: tru
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:127)
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:112)
 	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:102)
-	at automationcore.Base.initializeBrowser(Base.java:35)
+	at automationcore.Base.initializeBrowser(Base.java:32)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)

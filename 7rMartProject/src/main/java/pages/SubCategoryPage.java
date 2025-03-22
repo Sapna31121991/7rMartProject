@@ -1,14 +1,10 @@
 package pages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-
 import constants.Constants;
 import utilities.PageUtility;
-
 public class SubCategoryPage {
 	public WebDriver driver;
 
@@ -29,7 +25,6 @@ public class SubCategoryPage {
 	private WebElement chooseFile;
 	@FindBy(xpath = "//button[text()='Save']")
 	private WebElement saveSubCategory;
-
 	@FindBy(xpath = "//a[@href='javascript:void(0)']")
 	private WebElement search;
 	@FindBy(xpath = "//select[@id='un']")
@@ -38,49 +33,52 @@ public class SubCategoryPage {
 	private WebElement subCategorysearch;
 	@FindBy(xpath = "//button[@name='Search']")
 	private WebElement search1;
-
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-sync-alt']")
 	private WebElement reset;
-
 	@FindBy(xpath = "//h5[text()=' Alert!']")
 	private WebElement newSubCategory;
 	@FindBy(xpath = "//h4[text()='List Sub Categories']")
 	private WebElement searchSubCategory;
 	@FindBy(xpath = "//h4[text()='List Sub Categories']")
 	private WebElement refresh;
-
 	public SubCategoryPage clickOnSubCategory() {
 		subCategory.click();
 		return new SubCategoryPage(driver);
 	}
+
 	public SubCategoryPage clickOnAddNewButton() {
 		addNewItem.click();
 		return this;
 	}
+
 	public SubCategoryPage clickOnCategoryFromDropDownMenu() {
-		PageUtility page=new PageUtility();
+		PageUtility page = new PageUtility();
 		page.selectDropdownWithIndex(categoryselect, 4);
 		return this;
 	}
+
 	public SubCategoryPage enterSubCategoryOnSubCategoryField(String subCategorySelect) {
 		subCategoryField.sendKeys(subCategorySelect);
 		return this;
 	}
+
 	public SubCategoryPage clickOnChooseFile() {
-		chooseFile.sendKeys(Constants.IMAGEFILE );
+		chooseFile.sendKeys(Constants.IMAGEFILE);
 		return this;
 	}
+
 	public SubCategoryPage clickOnSaveButton() {
 		saveSubCategory.submit();
 		return this;
 	}
+
 	public SubCategoryPage clickOnSearchButtonOnTheSubCategoru() {
 		search.click();
 		return this;
 	}
 
 	public SubCategoryPage clickOnCategoryDropDownMenuForCategorysearch() {
-		PageUtility page=new PageUtility();
+		PageUtility page = new PageUtility();
 		page.selectDropdownWithIndex(categorySearch, 11);
 		return this;
 	}
